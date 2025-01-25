@@ -32,3 +32,9 @@ items = [
 # 全ての商品を取得する関数
 def find_all():
     return items
+
+def find_by_id(id:int):
+    for item in items:
+        if item.id == id:
+            return item
+    return None
