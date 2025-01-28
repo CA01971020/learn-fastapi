@@ -18,3 +18,7 @@ async def find_by_name(name:str):
 @app.post("/items")
 async def cteate(item_create=Body()):
     return item_cruds.creat(item_create)
+
+@app.put("/items{id}")
+async def update(id:int, item_update = Body()):
+    return item_cruds.update(id,item_update)
