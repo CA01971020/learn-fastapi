@@ -46,7 +46,7 @@ def find_by_name(name:str):
             filtered_items.append(item)
     return filtered_items
 
-def creat(item_create):
+def create(item_create):
     new_item = Item(
         len(items) + 1,
         item_create.get("name"),
