@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Optional
+from api.schemas import ItemCreate
 
 # 商品の状態
 class ItemStatus(Enum):
@@ -46,12 +47,12 @@ def find_by_name(name:str):
             filtered_items.append(item)
     return filtered_items
 
-def create(item_create):
+def create(item_create:ItemCreate):
     new_item = Item(
         len(items) + 1,
-        item_create.get("name"),
-        item_create.get("price"),
-        item_create.get("description"),
+        item_create.name,
+        item_create.price,
+        item_create.description,
         ItemStatus.ON_SALE,
     )
     items.append(new_item)
