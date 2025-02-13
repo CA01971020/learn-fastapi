@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import APIRouter,Path
+from fastapi import APIRouter,Path,Query
 from api.cruds import item as item_cruds
 from api.schemas import ItemCreate,ItemUpdate,ItemResponse
 
@@ -13,8 +13,8 @@ async def find_all():
 async def find_by_id(id: int=Path(gt=0)):
     return item_cruds.find_by_id(id)
 
-@router.get("/name/{name}",response_model=list[ItemResponse]) 
-async def find_by_name(name: str):
+@router.get("/",response_model=list[ItemResponse]) 
+async def find_by_name(name: str=Query(min_length=2,max_length=20)):
     return item_cruds.find_by_name(name)
 
 @router.post("",response_model=ItemResponse)
