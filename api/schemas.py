@@ -17,3 +17,11 @@ class ItemUpdate(BaseModel):
     price:Optional[int] = Field(None,gt=0, examples=[1000])
     description:Optional[str] = Field(None,examples=["説明"])
     status:Optional[ItemStatus] = Field(None,examples=[ItemStatus.SOLD_OUT])
+
+# サンプル値
+class ItemResponse(BaseModel):
+    id:int = Field(gt=0,examples=[1])
+    name:str = Field(min_length=2,max_length=20,examples=["商品"])
+    price:int = Field(gt=0,examples=[1000])
+    description:Optional[str] = Field(None,examples=["説明"])
+    status:ItemStatus = Field(examples=[ItemStatus.ON_SALE])
