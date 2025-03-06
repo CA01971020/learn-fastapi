@@ -3,3 +3,5 @@ __pycache__/
 env/
 .vscode/
 .idea/
+/docker
+docker-compose.yml
